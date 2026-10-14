@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="prep"/>
+        <attribute name="authors" value="Khadijah"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-09 01:24:23 pm"/>
+        <attribute name="created" value="S2hhZGlqYWg7REVTS1RPUC1MRkRQTVY3OzIwMjYtMTAtMDg7MTE6NTI6MTIgcG07MzIyMg=="/>
+        <attribute name="edited" value="S2hhZGlqYWg7REVTS1RPUC1MRkRQTVY3OzIwMjYtMTAtMDk7MDE6MjQ6MjMgcG07NTszMzM1"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="issueChoice" type="Integer" array="False" size=""/>
+            <declare name="community" type="Integer" array="False" size=""/>
+            <declare name="networkChoice" type="Integer" array="False" size=""/>
+            <declare name="fixedChoice" type="Integer" array="False" size=""/>
+            <declare name="continueReports" type="Boolean" array="False" size=""/>
+            <assign variable="continueReports" expression="true"/>
+            <declare name="problem" type="String" array="False" size=""/>
+            <declare name="tryAgain" type="Integer" array="False" size=""/>
+            <declare name="Number" type="String" array="False" size=""/>
+            <declare name="moreChoice" type="Integer" array="False" size=""/>
+            <declare name="repportRemainsOpen" type="Integer" array="False" size=""/>
+            <declare name="problemResolved" type="Integer" array="False" size=""/>
+            <declare name="continueReport" type="Boolean" array="False" size=""/>
+            <declare name="thankYou" type="Integer" array="False" size=""/>
+            <while expression="continueReports">
+                <output expression="&quot;Choose issue: 1 Outage, 2 Unstable power, 3 Hazard, 4 Billing, 5 Other&quot;" newline="True"/>
+                <input variable="issueChoice"/>
+                <if expression="issueChoice&lt;=1 or issueChoice&gt;=5">
+                    <then>
+                        <output expression="&quot;Enter your community:&quot;" newline="True"/>
+                        <input variable="community"/>
+                        <output expression="&quot;Describe the electricity problem:&quot;" newline="True"/>
+                        <input variable="problem"/>
+                        <output expression="&quot;Is internet available? Enter 1 for yes or 0 for no:&quot;" newline="True"/>
+                        <input variable="networkChoice"/>
+                        <while expression="networkChoice!=1">
+                            <output expression="&quot;Try Again&quot;" newline="True"/>
+                            <input variable="networkChoice"/>
+                        </while>
+                        <output expression="&quot;After the repair, enter 1 if fixed or 0 if the problem remains:&quot;" newline="True"/>
+                        <input variable="fixedChoice"/>
+                        <while expression="FixedChoice!=1">
+                            <output expression="&quot;Repport Remains Open&quot;" newline="True"/>
+                            <input variable="fixedChoice"/>
+                        </while>
+                        <output expression="&quot;problem Resolved Press 1 To Report new Issue&quot;" newline="True"/>
+                        <input variable="moreChoice"/>
+                        <if expression="moreChoice = 1">
+                            <then>
+                                <assign variable="continueReport" expression="true"/>
+                            </then>
+                            <else>
+                                <assign variable="continueReport" expression="false"/>
+                            </else>
+                        </if>
+                        <output expression="&quot;Thank You&quot;" newline="True"/>
+                    </then>
+                    <else>
+                        <output expression="&quot;Invalid Choice Try Again&quot;" newline="True"/>
+                    </else>
+                </if>
+            </while>
+        </body>
+    </function>
+</flowgorithm>
